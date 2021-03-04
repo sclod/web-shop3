@@ -1,0 +1,57 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+        <!-- BREADCRUMB -->
+		<div id="breadcrumb" class="section">
+
+		</div>
+		<!-- /BREADCRUMB -->
+
+		<!-- SECTION -->
+		<div class="section small">
+			<div class="container">
+				<div class="row">
+                    <!-- CONTENT PLACEHOLDER -->
+                    <form id="form-2" action="/accounts/sign_in" method="post">
+                        {% csrf_token %}
+                        <p>
+                            <label for="login">Логин:</label><br>
+                            <input type="text" id="login" name="login" class="inp" required>
+                            <span id="login_err" class="error"></span>
+                        </p>
+                        <p>
+                            <label for="pass1">Пароль:</label><br>
+                            <input type="password" id="pass1" name="pass1" class="inp" required>
+                            <span id="pass1_err" class="error"></span>
+                        </p>
+                        <p style="margin-top: 30px">
+                            <input type="checkbox" id="save" name="save">&nbsp;
+                            <label for="save">Сохранить в системе</label>
+                        </p>
+                        <p>
+                            <input type="submit" id="submit" value="Войти" class="btn btn-success b">
+                            <input type="reset" id="reset" value="Отмена" class="btn btn-primary b">
+                        </p>
+                    </form>
+                    <!-- /CONTENT PLACEHOLDER -->
+                </div>
+			</div>
+		</div>
+		<!-- /SECTION -->
+<style>
+    .b {
+        width: 150px;
+        margin-top: 15px;
+    }
+    .inp {
+        width: 30%;
+        padding: 5px;
+    }
+    .small {
+        padding: 0;
+    }
+    #form-2 label {
+        font: italic 13pt "Trebuchet MS";
+    }
+</style>
+{% endblock content %}
