@@ -80,6 +80,7 @@ def sign_in(request):
 
 def sign_out(request):
     # Выход с аккаунта
+    logout(request)
     return render(request, 'accounts/sign_out.html', context={
         'title': 'Выход'
     })
@@ -94,4 +95,11 @@ def profile(request):
 
 def ajax_reg(request):
     response = dict()
+    login_y = request.GET.get('login')
+    try:
+        User.objects.get(username=login_y)
+        response['message'] = 'Занят'
+    except User.DoesNotExist:
+        response['message'] = 'Свободен'
+    return JsonResponse(response)
 
