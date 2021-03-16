@@ -28,6 +28,15 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Email
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'Your gmail email'
+EMAIL_HOST_PASSWORD = 'Your gmail password'
+DEFAULT_FROM_EMAIL = 'Your name'
+DEFAULT_TO_EMAIL = 'Your email'
 
 # Application definition
 
@@ -42,6 +51,7 @@ INSTALLED_APPS = [
     'accounts',
     'catalog',
     'orders',
+    'email_send'
 ]
 
 MIDDLEWARE = [
