@@ -1,0 +1,7 @@
+# Статичні ассети не враховуються при визначенні мови репозиторію.
+# Основна мова проєкту — Python / Django.
+*.css   linguist-detectable=false
+*.scss  linguist-detectable=false
+*.less  linguist-detectable=false
+*.js    linguist-detectable=false
+*.html  linguist-detectable=false
