@@ -1,0 +1,72 @@
+{% extends 'layouts/base.html' %}
+
+
+{% block content %}
+      <div id="breadcrumb" class="section">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <h3 class="breadcrumb-header">{{ title }}</h3>
+                  <ul class="breadcrumb-tree">
+                     <li><a href="#">orders</a></li>
+                     <li class="active">Заказы</li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="section small">
+         <div class="container">
+            <div class="row">
+                    <!-- ======== CONTENT PLACEHOLDER ========= -->
+                    <h3>Текущие заказы</h3>
+                    <table id="orders_table" border="1">
+                        <thead>
+                            <tr>
+                                <th>Заказ</th>
+                                <th>Продукт</th>
+                                <th>Цена</th>
+                                <th>Дата</th>
+                                <th>Статус</th>
+                                <th>Управление</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for order in user_orders %}
+                                <tr>
+                                    <td>{{ order.title }}</td>
+                                    <td>{{ order.product.title }}</td>
+                                    <td>{{ order.amount }}</td>
+                                    <td>{{ order.data }}</td>
+                                    <td>{{ order.status }}</td>
+                                    <td>
+                                        <button class="btn btn-primary">⌀</button>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <!-- ======== /CONTENT PLACEHOLDER ========= -->
+            </div>
+         </div>
+      </div>
+    <style>
+        #orders_table {
+            width: 100%;
+        }
+        #orders_table th {
+            text-align: center;
+            font-size: 10pt;
+            padding: 5px;
+            color: darkcyan;
+            font-style: italic;
+        }
+        #orders_table td {
+            text-align: center;
+            font-size: 10pt;
+            padding: 5px;
+            color: darkcyan;
+            font-style: italic;
+        }
+    </style>
+{% endblock content %}
